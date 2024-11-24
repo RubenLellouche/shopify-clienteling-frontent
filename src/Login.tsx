@@ -27,6 +27,7 @@ export function Login() {
       )
       .then((res) => {
         data = res;
+        console.log(res);
       });
   }
 
@@ -35,8 +36,8 @@ export function Login() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          <code>${code}</code>
-          <code>${JSON.stringify(data)}</code>
+          <code>{code}</code>
+          <code>{JSON.stringify(data)}</code>
         </p>
       </header>
     </div>
