@@ -16,8 +16,10 @@ export function Login() {
     window.location.href = url;
   } else {
     const body = new FormData();
-    body.append("client_id", process.env.REACT_APP_SHOPIFY_CLIENT_ID);
-    body.append("client_secret", process.env.REACT_APP_SHOPIFY_CLIENT_SECRET);
+    const client_id = process.env.REACT_APP_SHOPIFY_CLIENT_ID as string;
+    const client_secret = process.env.REACT_APP_SHOPIFY_CLIENT_SECRET as string;
+    body.append("client_id", client_id);
+    body.append("client_secret", client_secret);
     body.append("code", code);
 
     axios
