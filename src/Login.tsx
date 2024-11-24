@@ -3,7 +3,7 @@ import "./App.css";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 
-export async function Login() {
+export function Login() {
   const location = useLocation();
   const code = new URLSearchParams(location.search).get("code");
 
@@ -20,10 +20,14 @@ export async function Login() {
       client_secret: process.env.REACT_APP_SHOPIFY_CLIENT_SECRET,
       code,
     };
-    data = await axios.post(
-      "https://balink-demo-shop.myshopify.com/admin/oauth/access_token",
-      body
-    );
+     axios
+      .post(
+        "https://balink-demo-shop.myshopify.com/admin/oauth/access_token",
+        body
+      )
+      .then((res) => {
+        data = res;
+      });
   }
 
   return (
