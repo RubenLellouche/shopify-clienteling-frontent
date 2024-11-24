@@ -22,12 +22,6 @@ export function Login() {
           client_id: process.env.REACT_APP_SHOPIFY_CLIENT_ID,
           client_secret: process.env.REACT_APP_SHOPIFY_CLIENT_SECRET,
           code,
-        },
-        {
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            "Access-Control-Allow-Origin": "*",
-          },
         }
       )
       .then((res) => {
