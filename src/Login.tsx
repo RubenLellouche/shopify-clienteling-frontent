@@ -15,12 +15,12 @@ export function Login() {
   if (!code) {
     window.location.href = url;
   } else {
-    const body = {
-      client_id: process.env.REACT_APP_SHOPIFY_CLIENT_ID,
-      client_secret: process.env.REACT_APP_SHOPIFY_CLIENT_SECRET,
-      code,
-    };
-     axios
+    const body = new FormData();
+    body.append("client_id", process.env.REACT_APP_SHOPIFY_CLIENT_ID);
+    body.append("client_secret", process.env.REACT_APP_SHOPIFY_CLIENT_SECRET);
+    body.append("code", code);
+
+    axios
       .post(
         "https://balink-demo-shop.myshopify.com/admin/oauth/access_token",
         body
