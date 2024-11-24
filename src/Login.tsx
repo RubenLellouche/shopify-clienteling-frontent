@@ -25,7 +25,13 @@ export function Login() {
     axios
       .post(
         "https://balink-demo-shop.myshopify.com/admin/oauth/access_token",
-        body
+        body,
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
       )
       .then((res) => {
         data = res;
