@@ -15,28 +15,25 @@ export function Login() {
   if (!code) {
     window.location.href = url;
   } else {
-    const body = new FormData();
-    const client_id = process.env.REACT_APP_SHOPIFY_CLIENT_ID as string;
-    const client_secret = process.env.REACT_APP_SHOPIFY_CLIENT_SECRET as string;
-    body.append("client_id", client_id);
-    body.append("client_secret", client_secret);
-    body.append("code", code);
-
-    // axios
-    //   .post(
-    //     "https://balink-demo-shop.myshopify.com/admin/oauth/access_token",
-    //     body,
-    //     {
-    //       headers: {
-    //         "Content-Type": "application/x-www-form-urlencoded",
-    //         "Access-Control-Allow-Origin": "*",
-    //       },
-    //     }
-    //   )
-    //   .then((res) => {
-    //     data = res;
-    //     console.log(res);
-    //   });
+    axios
+      .post(
+        "https://shopify-clienteling-backend-1f4b633c8cf5.herokuapp.com/shopify/oauth/access_token",
+        {
+          client_id: process.env.REACT_APP_SHOPIFY_CLIENT_ID,
+          client_secret: process.env.REACT_APP_SHOPIFY_CLIENT_SECRET,
+          code,
+        },
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      )
+      .then((res) => {
+        data = res;
+        console.log(res);
+      });
   }
 
   return (
@@ -45,7 +42,7 @@ export function Login() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           <code>{code}</code>
-{/*           <code>{JSON.stringify(data)}</code> */}
+          <code>{JSON.stringify(data)}</code>
         </p>
       </header>
     </div>
