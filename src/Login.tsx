@@ -22,21 +22,21 @@ export function Login() {
     body.append("client_secret", client_secret);
     body.append("code", code);
 
-    axios
-      .post(
-        "https://balink-demo-shop.myshopify.com/admin/oauth/access_token",
-        body,
-        {
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            "Access-Control-Allow-Origin": "*",
-          },
-        }
-      )
-      .then((res) => {
-        data = res;
-        console.log(res);
-      });
+    // axios
+    //   .post(
+    //     "https://balink-demo-shop.myshopify.com/admin/oauth/access_token",
+    //     body,
+    //     {
+    //       headers: {
+    //         "Content-Type": "application/x-www-form-urlencoded",
+    //         "Access-Control-Allow-Origin": "*",
+    //       },
+    //     }
+    //   )
+    //   .then((res) => {
+    //     data = res;
+    //     console.log(res);
+    //   });
   }
 
   return (
@@ -45,7 +45,7 @@ export function Login() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           <code>{code}</code>
-          <code>{JSON.stringify(data)}</code>
+{/*           <code>{JSON.stringify(data)}</code> */}
         </p>
       </header>
     </div>
