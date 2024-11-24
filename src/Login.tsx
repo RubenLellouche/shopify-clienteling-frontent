@@ -11,7 +11,7 @@ export function Login() {
 
   const url = `https://balink-demo-shop.myshopify.com/admin/oauth/authorize?client_id=${process.env.REACT_APP_SHOPIFY_CLIENT_ID}&scope=write_products&redirect_uri=${REDIRECT_BASE_URI}&state=${state}&grant_options[]=per-user`;
 
-  // window.location.href = url;
+  window.location.href = url;
 
   return (
     console.log({ code, url }),
