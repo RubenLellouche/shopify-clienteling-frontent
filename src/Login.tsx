@@ -45,13 +45,22 @@ export function Login() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           <code>code: {code}</code>
-          <code>token: {accessToken}</code>
-
-          <code>
-            user: {userInformation.first_name} {userInformation.last_name}
-          </code>
-          <code>email: {userInformation.email}</code>
         </p>
+        {userInformation && (
+          <>
+            <p>
+              <code>token: {accessToken}</code>
+            </p>
+            <p>
+              <code>
+                user: {userInformation.first_name} {userInformation.last_name}
+              </code>
+            </p>
+            <p>
+              <code>email: {userInformation.email}</code>
+            </p>
+          </>
+        )}
       </header>
     </div>
   );
