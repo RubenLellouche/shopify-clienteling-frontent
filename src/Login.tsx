@@ -36,7 +36,7 @@ export function Login() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           <code>${code}</code>
-          <code>${data && data.data.access_token}</code>
+          <code>${JSON.stringify(data)}</code>
         </p>
       </header>
     </div>
