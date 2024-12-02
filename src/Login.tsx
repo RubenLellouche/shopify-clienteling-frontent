@@ -11,7 +11,7 @@ export function Login() {
 
   const url = `https://${shop}/admin/oauth/authorize?client_id=${process.env.REACT_APP_SHOPIFY_CLIENT_ID}&scope=write_products&redirect_uri=${REDIRECT_BASE_URI}&state=${state}&grant_options[]=per-user`;
 
-  if (window.top) window.top.location.href = url;
+  // if (window.top) window.top.location.href = url;
   window.location.href = url;
 
   return (
