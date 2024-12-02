@@ -12,6 +12,7 @@ export function Home() {
     localStorage.setItem("accessToken", isAccessTokenInUrl);
     console.log(`Access token: ${isAccessTokenInUrl}`);
   } else {
+    console.log("Redirecting to login");
     navigate("/login");
   }
   return (
