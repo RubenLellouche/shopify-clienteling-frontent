@@ -7,6 +7,7 @@ export function Home() {
   const shopParam = query.get("shop");
   const accessToken = localStorage.getItem("accessToken");
   const isAccessTokenInUrl = query.get("access_token");
+  const shop = query.get("shop");
 
   if (isAccessTokenInUrl && !accessToken) {
     localStorage.setItem("accessToken", isAccessTokenInUrl);
@@ -24,7 +25,7 @@ export function Home() {
         <button
           onClick={() => {
             localStorage.removeItem("accessToken");
-            navigate("/login");
+            navigate(`/login?shop=${shop}`);
           }}
         >
           Login
