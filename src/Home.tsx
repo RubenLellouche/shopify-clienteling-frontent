@@ -13,7 +13,7 @@ export function Home() {
     console.log(`Access token: ${isAccessTokenInUrl}`);
   } else {
     console.log("Redirecting to login");
-    navigate("/login");
+    return navigate("/login");
   }
   return (
     <div className="App">
