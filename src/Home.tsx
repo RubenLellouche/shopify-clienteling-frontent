@@ -19,7 +19,9 @@ export function Home() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          <code>Hello ${shopParam} isAccessTokenInUrl!</code>
+          <code>
+            Hello ${shopParam} ${isAccessTokenInUrl}!
+          </code>
         </p>
       </header>
     </div>
