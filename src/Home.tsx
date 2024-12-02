@@ -16,9 +16,7 @@ export function Home() {
   }
   localStorage.setItem("shop__name", shopName);
   if (accessToken) {
-    setTimeout(() => {
-      window.location.href = `https://admin.shopify.com/store/${shopName}/apps/${process.env.REACT_APP_SHOPIFY_CLIENT_ID}?loggedIn=true`;
-    }, 3000);
+    window.location.href = `https://admin.shopify.com/store/${shopName}/apps/${process.env.REACT_APP_SHOPIFY_CLIENT_ID}?loggedIn=true`;
   }
   const isLoggedIntoShopify =
     localStorage.getItem("isLoggedIntoShopify") ??
