@@ -21,12 +21,13 @@ export function Home() {
           <code>Hello {shopParam}!</code>
         </p>
         {accessToken ? (
-          <p>
+          <div>
             <code>
-              `Succesfully authenticated <br />
-              Access token: ${accessToken}`
+              <p>Succesfully authenticated</p>
+              <br />
+              <p>Access token: {accessToken}</p>
             </code>
-          </p>
+          </div>
         ) : (
           <button
             onClick={() => {
