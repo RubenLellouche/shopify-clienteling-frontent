@@ -26,7 +26,18 @@ export function Home() {
             <code>
               <p>Succesfully authenticated</p>
               <small>Access token: {accessToken}</small>
-              <button>
+              <br />
+              <button
+                style={{
+                  marginTop: "10px",
+                  padding: "5px",
+                  color: "white",
+                  backgroundColor: "black",
+                  border: "none",
+                  cursor: "pointer",
+                  borderRadius: "5px",
+                }}
+              >
                 <a
                   href={`https://admin.shopify.com/store/${shopName}/apps/${process.env.REACT_APP_SHOPIFY_CLIENT_ID}`}
                 >
