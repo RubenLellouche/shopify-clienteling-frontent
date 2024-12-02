@@ -49,14 +49,30 @@ export function Home() {
             </code>
           </div>
         ) : (
-          <button
-            onClick={() => {
-              localStorage.removeItem("accessToken");
-              navigate(`/login?shop=${shop}`);
-            }}
-          >
-            Login
-          </button>
+          <div>
+            {isLoggedIntoShopify ? (
+              <code>
+                <p>Succesfully authenticated</p>
+              </code>
+            ) : (
+              <button
+                style={{
+                  marginTop: "10px",
+                  padding: "5px",
+                  color: "white",
+                  backgroundColor: "black",
+                  border: "none",
+                  cursor: "pointer",
+                  borderRadius: "5px",
+                }}
+                onClick={() => {
+                  navigate(`/login?shop=${shop}`);
+                }}
+              >
+                Authenticate with Shopify
+              </button>
+            )}
+          </div>
         )}
       </header>
     </div>
