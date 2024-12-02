@@ -14,6 +14,7 @@ export function Home() {
     localStorage.setItem("accessToken", isAccessTokenInUrl);
     console.log(`Access token: ${isAccessTokenInUrl}`);
   }
+  localStorage.setItem("shop__name", shopName);
   return (
     <div className="App">
       <header className="App-header">
