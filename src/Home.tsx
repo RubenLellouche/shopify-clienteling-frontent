@@ -5,6 +5,7 @@ export function Home() {
   const navigate = useNavigate();
   const query = new URLSearchParams(useLocation().search);
   const shopParam = query.get("shop");
+  const [shopName] = shopParam?.split(".myshopify.com") || [];
   const accessToken = localStorage.getItem("accessToken");
   const isAccessTokenInUrl = query.get("access_token");
   const shop = query.get("shop");
@@ -24,8 +25,16 @@ export function Home() {
           <div>
             <code>
               <p>Succesfully authenticated</p>
-              <br />
-              <p>Access token: {accessToken}</p>
+              <small>Access token: {accessToken}</small>
+              <button>
+                <a
+                  href={`https://admin.shopify.com/store/${shopName}/apps/${process.env.REACT_APP_SHOPIFY_CLIENT_ID}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Back to Shopify
+                </a>
+              </button>
             </code>
           </div>
         ) : (
