@@ -15,6 +15,13 @@ export function Home() {
     console.log(`Access token: ${isAccessTokenInUrl}`);
   }
   localStorage.setItem("shop__name", shopName);
+  if (accessToken) {
+    setTimeout(() => {
+      window.location.href = `https://admin.shopify.com/store/${shopName}/apps/${process.env.REACT_APP_SHOPIFY_CLIENT_ID}?loggedIn=true`;
+    }, 3000);
+  }
+  const isLoggedIntoShopify = query.get("loggedIn") === "true" || false;
+  localStorage.setItem("isLoggedIntoShopify", `${isLoggedIntoShopify}`);
   return (
     <div className="App">
       <header className="App-header">
@@ -38,13 +45,7 @@ export function Home() {
                   cursor: "pointer",
                   borderRadius: "5px",
                 }}
-              >
-                <a
-                  href={`https://admin.shopify.com/store/${shopName}/apps/${process.env.REACT_APP_SHOPIFY_CLIENT_ID}`}
-                >
-                  Back to Shopify
-                </a>
-              </button>
+              ></button>
             </code>
           </div>
         ) : (
