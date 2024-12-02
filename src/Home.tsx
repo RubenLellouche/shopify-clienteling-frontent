@@ -29,8 +29,6 @@ export function Home() {
               <button>
                 <a
                   href={`https://admin.shopify.com/store/${shopName}/apps/${process.env.REACT_APP_SHOPIFY_CLIENT_ID}`}
-                  target="_blank"
-                  rel="noreferrer"
                 >
                   Back to Shopify
                 </a>
