@@ -1,6 +1,5 @@
 import logo from "./logo.svg";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 export function Home() {
   const navigate = useNavigate();
@@ -10,10 +9,7 @@ export function Home() {
   const isAccessTokenInUrl = query.get("access_token");
   const shop = query.get("shop");
 
-  const [token, setToken] = useState("");
-
   if (isAccessTokenInUrl && !accessToken) {
-    setToken(isAccessTokenInUrl);
     localStorage.setItem("accessToken", isAccessTokenInUrl);
     console.log(`Access token: ${isAccessTokenInUrl}`);
   }
@@ -22,18 +18,25 @@ export function Home() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          <code>
-            Hello {shopParam} !{token && ` Access token: ${token}`}
-          </code>
+          <code>Hello {shopParam}!</code>
         </p>
-        <button
-          onClick={() => {
-            localStorage.removeItem("accessToken");
-            navigate(`/login?shop=${shop}`);
-          }}
-        >
-          Login
-        </button>
+        {accessToken ? (
+          <p>
+            <code>
+              `Succesfully authenticated <br />
+              Access token: ${accessToken}`
+            </code>
+          </p>
+        ) : (
+          <button
+            onClick={() => {
+              localStorage.removeItem("accessToken");
+              navigate(`/login?shop=${shop}`);
+            }}
+          >
+            Login
+          </button>
+        )}
       </header>
     </div>
   );
