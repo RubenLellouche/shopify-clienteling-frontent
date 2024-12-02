@@ -3,6 +3,7 @@ import "./App.css";
 import { useLocation } from "react-router-dom";
 
 export function Login() {
+  localStorage.removeItem("accessToken");
   const state = Math.random().toString(36).substring(7);
   const shop = new URLSearchParams(useLocation().search).get("shop");
   const REDIRECT_BASE_URI =
