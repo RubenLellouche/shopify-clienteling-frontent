@@ -20,7 +20,7 @@ export function Home() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           <code>
-            Hello ${shopParam} ${isAccessTokenInUrl}!
+            Hello ${shopParam} ${accessToken}!
           </code>
         </p>
       </header>
