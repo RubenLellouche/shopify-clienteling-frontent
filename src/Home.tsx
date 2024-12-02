@@ -11,9 +11,6 @@ export function Home() {
   if (isAccessTokenInUrl && !accessToken) {
     localStorage.setItem("accessToken", isAccessTokenInUrl);
     console.log(`Access token: ${isAccessTokenInUrl}`);
-  } else {
-    console.log("Redirecting to login");
-    return navigate("/login");
   }
   return (
     <div className="App">
@@ -24,6 +21,14 @@ export function Home() {
             Hello ${shopParam} ${accessToken}!
           </code>
         </p>
+        <button
+          onClick={() => {
+            localStorage.removeItem("accessToken");
+            navigate("/login");
+          }}
+        >
+          Login
+        </button>
       </header>
     </div>
   );
