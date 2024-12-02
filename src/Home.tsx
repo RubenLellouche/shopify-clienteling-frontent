@@ -19,7 +19,7 @@ export function Home() {
     window.location.href = `https://admin.shopify.com/store/${shopName}/apps/${process.env.REACT_APP_SHOPIFY_CLIENT_ID}?loggedIn=true`;
   }
   const isLoggedIntoShopify =
-    localStorage.getItem("isLoggedIntoShopify") ??
+    localStorage.getItem("isLoggedIntoShopify") === "true" ||
     query.get("loggedIn") === "true";
   localStorage.setItem("isLoggedIntoShopify", `${isLoggedIntoShopify}`);
   return (
